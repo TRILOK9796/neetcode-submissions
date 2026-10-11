@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> st;
+        for(char ch : s){
+            if(ch=='}'&&!st.empty()&&st.top()=='{'){
+                st.pop();
+            }else if(ch==']'&&!st.empty()&&st.top()=='['){
+                st.pop();
+            }else if(ch==')'&&!st.empty()&&st.top()=='('){
+                st.pop();
+            }else{
+                st.push(ch);
+            }
+        }
+        return st.empty();
+    }
+};
